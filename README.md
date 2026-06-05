@@ -39,8 +39,8 @@ git config --global user.email "tu@email.com"
 
 ### 3. Clonar el repositorio
 ```bash
-git clone https://github.com/JefryTP/ProyectoPOSSwing.git
-cd ProyectoPOSSwing
+git clone https://github.com/JefryTP/ProyectoPOSFX.git
+cd ProyectoPOSFX
 ```
 
 ### 4. Ubicarte en TU rama
@@ -62,7 +62,7 @@ File → Open Project → selecciona la carpeta del repositorio.
 ## Rutina diaria de trabajo
 
 ### Al inicio del día — actualizar tu rama
-En NetBeans: **Team → Remote → Pull**
+En NetBeans: **Git → Remote → Pull**
 
 En la ventana que aparece marca solo:
 - ✅ `develop -> origin/develop`
@@ -72,7 +72,7 @@ Esto trae los últimos cambios del proyecto a tu rama.
 ### Durante el día — guardar tu avance
 Cada vez que termines algo concreto guarda tu progreso.
 
-En NetBeans: **Team → Git → Commit**
+En NetBeans: **Git → Commit**
 - Escribe un mensaje describiendo lo que hiciste
 - Ejemplos de buenos mensajes:
   - `agrega pantalla de ventas`
@@ -81,7 +81,7 @@ En NetBeans: **Team → Git → Commit**
 - Clic en **Commit**
 
 ### Al terminar — subir tu trabajo
-En NetBeans: **Team → Remote → Push**
+En NetBeans: **Git → Remote → Push**
 
 Confirma que sube a `programador/tu-nombre` y clic en **Finish**.
 
@@ -119,4 +119,4 @@ Inicio del día
 ---
 
 ## Contacto
-Cualquier duda o conflicto en el código contactar a Jefry antes de hacer cualquier merge.
+Cualquier duda o conflicto en el código contactar a Jefry 943522944 antes de hacer cualquier merge.
