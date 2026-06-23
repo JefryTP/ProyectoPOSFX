@@ -1,4 +1,8 @@
+proyectoposfx\dao\UsuarioDAO.class
+proyectoposfx\App.class
+proyectoposfx\bd\ConexionBD.class
+proyectoposfx\modelos\Usuario.class
+proyectoposfx\controladores\LoginController.class
 module-info.class
-grupo\uno\proyectoposfx\SecondaryController.class
-grupo\uno\proyectoposfx\App.class
-grupo\uno\proyectoposfx\PrimaryController.class
+proyectoposfx\PrimaryController.class
+proyectoposfx\SecondaryController.class

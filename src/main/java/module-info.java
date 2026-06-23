@@ -1,7 +1,11 @@
-module grupo.uno.proyectoposfx {
+module proyectoposfx {
     requires javafx.controls;
     requires javafx.fxml;
-
-    opens grupo.uno.proyectoposfx to javafx.fxml;
-    exports grupo.uno.proyectoposfx;
+    requires java.sql;
+    requires mysql.connector.j;
+    opens proyectoposfx to javafx.fxml;
+    opens proyectoposfx.controladores to javafx.fxml;
+    opens proyectoposfx.modelos to javafx.base;
+    exports proyectoposfx;
+    exports proyectoposfx.controladores;
 }

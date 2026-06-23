@@ -1,4 +1,4 @@
-package grupo.uno.proyectoposfx;
+package proyectoposfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("VistaLogin"), 1080, 720);
+        scene = new Scene(loadFXML("VistaLogin"), Double.MAX_VALUE, Double.MAX_VALUE);
         stage.setScene(scene);
          stage.setMaximized(true);
         stage.show();
@@ -28,7 +28,7 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/grupo/uno/proyectoposfx/" + fxml + ".fxml"));
         return fxmlLoader.load();
     }
 

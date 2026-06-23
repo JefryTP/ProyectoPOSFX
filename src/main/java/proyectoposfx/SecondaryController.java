@@ -1,4 +1,4 @@
-package grupo.uno.proyectoposfx;
+package proyectoposfx;
 
 import java.io.IOException;
 import javafx.fxml.FXML;

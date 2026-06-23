@@ -1,6 +1,19 @@
 .fondo {
     -fx-background-image: url('../img/FondoLogin.png');
-    -fx-background-size: cover;
-    -fx-background-position: center;
+    -fx-background-size: auto 100%;
+    -fx-background-position: right center;
     -fx-background-repeat: no-repeat;
+}
+.formulario {
+    -fx-background-color: #111111;
+    -fx-background-radius: 0 50 50 0;
+    -fx-border-radius: 0 50 50 0;
+}
+.input {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+.boton {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
 }
