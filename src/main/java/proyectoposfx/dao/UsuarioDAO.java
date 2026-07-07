@@ -4,52 +4,29 @@ import proyectoposfx.bd.ConexionBD;
 import proyectoposfx.modelos.Usuario;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UsuarioDAO extends ConexionBD {
-    
-    // Listar todos los usuarios
-    public List<Usuario> listar() throws Exception {
-        List<Usuario> lista = new ArrayList<>();
-        String sql = "SELECT * FROM usuarios";
+
+    public Usuario login(String clave) throws Exception {
+        String sql = "SELECT u.id, u.dni, u.nombre, u.telefono, u.clave, "
+                   + "u.id_rol, r.cargo "
+                   + "FROM usuario u "
+                   + "JOIN rol r ON u.id_rol = r.id "
+                   + "WHERE u.clave = ? AND u.activo = TRUE";
         try {
             conectar();
             PreparedStatement ps = conn.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Usuario u = new Usuario();
-                u.setId(rs.getInt("id"));
-                u.setNombre(rs.getString("nombre"));
-                u.setUsuario(rs.getString("usuario"));
-                u.setContrasena(rs.getString("contrasena"));
-                u.setRol(rs.getString("rol"));
-                lista.add(u);
-            }
-        } catch (Exception e) {
-            System.out.println("Error al listar: " + e.getMessage());
-        } finally {
-            cerrar();
-        }
-        return lista;
-    }
-    
-    // Buscar por usuario y contraseña (para el login)
-    public Usuario login(String usuario, String contrasena) throws Exception {
-        String sql = "SELECT * FROM usuarios WHERE usuario=? AND contrasena=?";
-        try {
-            conectar();
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, usuario);
-            ps.setString(2, contrasena);
+            ps.setString(1, clave);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Usuario u = new Usuario();
                 u.setId(rs.getInt("id"));
+                u.setDni(rs.getString("dni"));
                 u.setNombre(rs.getString("nombre"));
-                u.setUsuario(rs.getString("usuario"));
-                u.setContrasena(rs.getString("contrasena"));
-                u.setRol(rs.getString("rol"));
+                u.setTelefono(rs.getString("telefono"));
+                u.setClave(rs.getString("clave"));
+                u.setIdRol(rs.getInt("id_rol"));
+                u.setCargoRol(rs.getString("cargo"));
                 return u;
             }
         } catch (Exception e) {
@@ -60,3 +37,4 @@ public class UsuarioDAO extends ConexionBD {
         return null;
     }
 }
+

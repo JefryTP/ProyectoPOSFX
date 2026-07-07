@@ -7,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import proyectoposfx.App;
 import proyectoposfx.dao.UsuarioDAO;
+import proyectoposfx.modelos.Sesion;
 import proyectoposfx.modelos.Usuario;
 
 public class LoginController {
@@ -28,23 +30,23 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
-        String codigo = txtCodigo.getText().trim();
         String contrasena = txtContrasena.getText().trim();
-
-        if (codigo.isEmpty() || contrasena.isEmpty()) {
-            mostrarAlerta("Error", "Ingrese código y contraseña.");
+ 
+        if (contrasena.isEmpty()) {
+            mostrarAlerta("Error", "Ingrese su clave.");
             return;
         }
-
+ 
         UsuarioDAO dao = new UsuarioDAO();
         try {
-            Usuario usuario = dao.login(codigo, contrasena);
-
+            Usuario usuario = dao.login(contrasena);
             if (usuario != null) {
-                System.out.println("✓ Login exitoso: " + usuario.getNombre());
+                Sesion.setUsuarioActual(usuario);
+                System.out.println("✓ Login exitoso: " + usuario.getNombre()
+                        + " (" + usuario.getCargoRol() + ")");
                 irAVistaCaja();
             } else {
-                mostrarAlerta("Error", "Código o contraseña incorrectos.");
+                mostrarAlerta("Error", "Clave incorrecta.");
             }
         } catch (Exception e) {
             mostrarAlerta("Error", "Error al conectar: " + e.getMessage());
@@ -52,18 +54,11 @@ public class LoginController {
     }
 
     private void irAVistaCaja() {
-    try {
-        Parent root = FXMLLoader.load(
-            getClass().getResource("/grupo/uno/proyectoposfx/VistaCaja.fxml")
-        );
-        Stage stage = (Stage) txtCodigo.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setMaximized(true);
-        stage.show();
-    } catch (Exception e) {
-        System.out.println("Error al cargar VistaCaja: " + e.getMessage());
-    }
+    try { 
+        App.setRoot("Menu"); 
+    } catch (Exception e) { 
+        System.out.println("Error al cargar Menu: " + e.getMessage()); 
+    } 
 }
 
     private void mostrarAlerta(String titulo, String mensaje) {

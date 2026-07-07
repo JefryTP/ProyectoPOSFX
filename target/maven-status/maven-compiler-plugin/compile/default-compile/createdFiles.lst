@@ -1,8 +1,12 @@
 proyectoposfx\dao\UsuarioDAO.class
+proyectoposfx\modelos\Producto.class
 proyectoposfx\App.class
 proyectoposfx\bd\ConexionBD.class
 proyectoposfx\modelos\Usuario.class
+proyectoposfx\controladores\CajaController.class
+proyectoposfx\modelos\Sesion.class
 proyectoposfx\controladores\LoginController.class
+proyectoposfx\controladores\MenuController.class
 module-info.class
-proyectoposfx\PrimaryController.class
-proyectoposfx\SecondaryController.class
+proyectoposfx\dao\ProductoDAO.class
+proyectoposfx\modelos\ItemCaja.class

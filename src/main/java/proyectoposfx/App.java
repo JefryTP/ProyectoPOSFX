@@ -17,13 +17,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("VistaLogin"), Double.MAX_VALUE, Double.MAX_VALUE);
+        scene = new Scene(loadFXML("VistaLogin"));
         stage.setScene(scene);
-         stage.setMaximized(true);
+        stage.setMaximized(true);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 

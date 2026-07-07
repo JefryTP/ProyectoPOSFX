@@ -1,37 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../styles/VistaCaja.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-   <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #7ED63E;" BorderPane.alignment="CENTER">
+<VBox alignment="CENTER" maxHeight="1.7976931348623157E308" spacing="50.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoposfx.controladores.CajaController">
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button mnemonicParsing="false" text="Caja">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" text="Productos">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" text="Arqueo">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children></VBox>
-   </left>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vista Caja" />
+            <VBox prefHeight="200.0" prefWidth="250.0" spacing="20.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo Documento">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <MenuButton fx:id="mbTipoDocumento" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Seleccionar">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="DNI" onAction="#seleccionarTipoDocumento" />
+                            <MenuItem mnemonicParsing="false" text="RUC" onAction="#seleccionarTipoDocumento" />
+                            <MenuItem mnemonicParsing="false" text="Carnet Extranjeria" onAction="#seleccionarTipoDocumento" />
+                          </items>
+                           <font><Font size="18.0" /></font>
+                        </MenuButton>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numero Documento">
+                           <font><Font size="18.0" /></font>
+                        </Text>
+                        <TextField fx:id="txtNumeroDocumento">
+                           <font><Font size="18.0" /></font>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox layoutX="500.0" layoutY="10.0" prefHeight="200.0" prefWidth="250.0" spacing="20.0">
+               <children>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Producto (código)">
+                           <font><Font size="18.0" /></font>
+                        </Text>
+                        <TextField fx:id="txtCodigoProducto" onAction="#agregarProducto">
+                           <font><Font size="18.0" /></font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="72.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad">
+                           <font><Font size="18.0" /></font>
+                        </Text>
+                        <TextField fx:id="txtCantidad" maxWidth="100.0" prefWidth="100.0" text="1">
+                           <font><Font size="18.0" /></font>
+                        </TextField>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox layoutX="575.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cajero">
+                           <font><Font size="18.0" /></font>
+                        </Text>
+                        <TextField fx:id="txtCajero" editable="false">
+                           <font><Font size="18.0" /></font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="72.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Button mnemonicParsing="false" text="Agregar" onAction="#agregarProducto">
+                           <font><Font size="18.0" /></font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
-      </VBox>
-   </center>
-</BorderPane>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TableView fx:id="tablaCaja" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="874.0">
+              <columns>
+                <TableColumn fx:id="colProducto" prefWidth="350.0" text="Producto" />
+                <TableColumn fx:id="colPrecio" prefWidth="150.0" text="Precio Unit." />
+                <TableColumn fx:id="colCantidad" prefWidth="150.0" text="Cantidad" />
+                <TableColumn fx:id="colSubtotal" prefWidth="150.0" text="Subtotal" />
+              </columns>
+               <HBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </HBox.margin>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <VBox>
+               <children>
+                  <Button mnemonicParsing="false" text="Pagar" onAction="#irACobrar">
+                     <font><Font size="18.0" /></font>
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Pago">
+                     <font><Font size="18.0" /></font>
+                  </Text>
+                  <TextField fx:id="txtTotalPago" editable="false" text="0.00">
+                     <font><Font size="18.0" /></font>
+                  </TextField>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

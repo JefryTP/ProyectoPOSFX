@@ -13,16 +13,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane alignment="CENTER_RIGHT" prefHeight="549.0" prefWidth="995.0" stylesheets="@../../../styles/VistaLogin.css" fx:controller="proyectoposfx.controladores.LoginController" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane alignment="CENTER_RIGHT" prefHeight="549.0" prefWidth="995.0" stylesheets="@../../../styles/VistaLogin.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoposfx.controladores.LoginController">
    <children>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="fondo" StackPane.alignment="CENTER_RIGHT" />
       <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" StackPane.alignment="CENTER_LEFT">
          <children>
             <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="720" minWidth="360.0" prefWidth="720" spacing="40.0" styleClass="formulario">
                <children>
-                  <ImageView fitHeight="88.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="304.0" fitWidth="358.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../img/IcoTienda.png" />
+                        <Image url="@../../../img/logoLetras.png" />
                      </image>
                   </ImageView>
                   <Label text="Iniciar Sesion" textFill="WHITE">
@@ -30,15 +30,11 @@
                         <Font name="Arial Bold" size="45.0" />
                      </font>
                   </Label>
-                  <TextField maxWidth="-Infinity" prefWidth="300.0" fx:id="txtCodigo" promptText="Codigo" styleClass="input">
-                     <font>
-                        <Font name="Arial" size="25.0" />
-                     </font></TextField>
-                  <TextField maxWidth="-Infinity" prefWidth="300.0" fx:id="txtContrasena" promptText="Contraseña" styleClass="input">
+                  <TextField fx:id="txtContrasena" maxWidth="-Infinity" prefWidth="300.0" promptText="Clave" styleClass="input">
                      <font>
                         <Font size="25.0" />
                      </font></TextField>
-                  <Button mnemonicParsing="false" fx:id="btnIngresar" style="     -fx-background-color: #7ED63E;" onAction="#handleLogin" styleClass="input" text="Ingresar" textFill="#111111">
+                  <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#handleLogin" style="     -fx-background-color: #7ED63E;" styleClass="input" text="Ingresar" textFill="#111111">
                      <font>
                         <Font name="Arial Bold" size="36.0" />
                      </font>
